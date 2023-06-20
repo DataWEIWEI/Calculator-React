@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import Base from './base';
 
-class Home extends Component {
+class Login extends Component {
     state = {  } 
     render() { 
         return (
-            <h1>home</h1>
+            <Base>
+                Login
+            </Base>
         );
     }
 }
  
-export default Home;
+export default Login;

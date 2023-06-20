@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Base from './base';
 
-class NotFound extends Component {
+class Calculator extends Component {
     state = {  } 
     render() { 
         return (
             <Base>
-                NotFound
+                Calculator
             </Base>
         );
     }
 }
  
-export default NotFound;
+export default Calculator;
