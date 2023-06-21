@@ -11,6 +11,8 @@ class Calculator extends Component {
     } 
     
     format = number => {
+        if (!number)
+            return '';
         const [integer, decimal] = number.split('.');
         if (decimal === undefined)
             return this.state.formater.format(integer);
