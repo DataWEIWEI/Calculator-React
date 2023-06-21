@@ -6,17 +6,27 @@ import DigitButton from '../calculator/digitButton';
 import ACTIONS from '../../redux/action';
 
 class Calculator extends Component {
-    state = {  } 
+    state = { 
+        formater: Intl.NumberFormat('en-US'),
+    } 
+    
+    format = number => {
+        const [integer, decimal] = number.split('.');
+        if (decimal === undefined)
+            return this.state.formater.format(integer);
+        return `${this.state.formater.format(integer)}.${decimal}`
+    }
+
     render() { 
         return (
             <Base>
                 <div className='calculator'>
                     <div className="output">
                         <div className="last-output">
-                            {this.props.lastOperand} {this.props.operation}
+                            {this.format(this.props.lastOperand)} {this.props.operation}
                         </div>
                         <div className="current-output">
-                            {this.props.currentOperand}
+                            {this.format(this.props.currentOperand)}
                         </div>
                     </div>
                     <button onClick={this.props.clear} className='button-ac'>AC</button>
