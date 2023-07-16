@@ -7,8 +7,6 @@ class Login extends Component {
         error_message: "",
         username: "",
         password: "",
-        access: "",
-        refresh: "",
     } 
     
     handleClick = e => {
@@ -20,16 +18,19 @@ class Login extends Component {
             this.setState({error_message: 'password is not empty'})
         } else {
             $.ajax({
-                url: 'https://app5593.acapp.acwing.com.cn/calculator/token/',
-                type: 'get',
+                url: '/api2/token/',
+                type: 'post',
                 data: {
                     username: this.state.username,
                     password: this.state.password,
                 },
                 dataType: 'json',
                 success: resp => {
-                    console.log(resp);
+                    window.location.href = '/calculator/';
                 },
+                error: error => {
+                    this.setState({error_message: 'username or password error' });
+                }
             })
         }
     }
@@ -43,7 +44,7 @@ class Login extends Component {
                             <form>
                                 <div className="mb-3">
                                     <label htmlFor="username" className="form-label">username</label>
-                                    <input onChange={e => {this.setState({username: e.target.value})}} type="text" className="form-control" id="username" aria-describedby="emailHelp"/>
+                                    <input onChange={e => { this.setState({ username: e.target.value }) }} type="text" className="form-control" id="username" aria-describedby="emailHelp" />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="password" className="form-label">Password</label>
