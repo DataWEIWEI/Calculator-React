@@ -7,25 +7,25 @@ class NavBar extends Component {
         return (
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">WEIWEI</Link>
+                    <Link className="navbar-brand" to="/calculator">WEIWEI</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="navbar-brand active" to="/home">Home</Link>
+                                <Link className="navbar-brand active" to="calculator/home">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="navbar-brand" to="/calculator">Calculator</Link>
+                                <Link className="navbar-brand" to="calculator/calculator">Calculator</Link>
                             </li>
                         </ul>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="navbar-brand" to="/login">Login</Link>
+                                <Link className="navbar-brand" to="calculator/login">Login</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="navbar-brand" to="/register">Register</Link>
+                                <Link className="navbar-brand" to="calculator/register">Register</Link>
                             </li>
                         </ul>
                     </div>
