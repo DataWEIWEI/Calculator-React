@@ -1,9 +1,68 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import $ from 'jquery';
 
 class NavBar extends Component {
-    state = {  } 
-    render() { 
+    state = {
+
+    }
+
+    handlerClick = () => {
+        $.ajax({
+            url: '/api2/logout/',
+            type: 'get',
+            data: {
+                username: this.state.username,
+                password: this.state.password,
+            },
+            dataType: 'json',
+            success: resp => {
+                console.log(resp);
+                if (resp.result === 'success')
+                    window.location.href = '/calculator';
+            },
+        })
+    }
+
+    render_calculator = () => {
+        if (this.props.is_login) {
+            return (
+                <li className="nav-item">
+                    <Link className="navbar-brand" to="calculator/calculator">Calculator</Link>
+                </li>
+            )
+        } else {
+            return '';
+        }
+    }
+
+    render_user = () => {
+        if (this.props.is_login) {
+            return (
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link className="navbar-brand" style={{ cursor: 'pointer' }}>{this.props.username}</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link onClick={ this.handlerClick } className="navbar-brand" style={{ cursor: 'pointer' }}>logout</Link>
+                    </li>
+                </ul>
+            )
+        } else {
+            return (
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link className="navbar-brand" to="calculator/login">Login</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="navbar-brand" to="calculator/register">Register</Link>
+                    </li>
+                </ul>
+            )
+        }
+    }
+
+    render() {
         return (
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container">
@@ -16,23 +75,14 @@ class NavBar extends Component {
                             <li className="nav-item">
                                 <Link className="navbar-brand active" to="calculator/home">Home</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="navbar-brand" to="calculator/calculator">Calculator</Link>
-                            </li>
+                            {this.render_calculator()}
                         </ul>
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link className="navbar-brand" to="calculator/login">Login</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="navbar-brand" to="calculator/register">Register</Link>
-                            </li>
-                        </ul>
+                        {this.render_user()}
                     </div>
                 </div>
             </nav>
         );
     }
 }
- 
+
 export default NavBar;

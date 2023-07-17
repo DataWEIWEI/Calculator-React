@@ -26,7 +26,7 @@ class Login extends Component {
                 },
                 dataType: 'json',
                 success: resp => {
-                    window.location.href = '/calculator/';
+                    window.location.href = '/calculator';
                 },
                 error: error => {
                     this.setState({error_message: 'username or password error' });
