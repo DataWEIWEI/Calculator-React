@@ -11,7 +11,7 @@ import $ from 'jquery';
 
 class App extends Component {
     state = { 
-        is_login: true,
+        is_login: false,
         username: 'weiwei',
     } 
     
