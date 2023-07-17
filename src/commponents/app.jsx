@@ -12,13 +12,13 @@ import $ from 'jquery';
 class App extends Component {
     state = { 
         is_login: false,
-        username: 'weiwei',
+        username: '',
     } 
     
     componentDidMount() {
         $.ajax({
-            url: '/api2/get_status/',
-            // url: 'https://app5593.acapp.acwing.com.cn/calculator/get_status/',
+            // url: '/api2/get_status/',
+            url: 'https://app5593.acapp.acwing.com.cn/calculator/get_status/',
             type: 'get',
             success: resp => {
                 console.log(resp.result);

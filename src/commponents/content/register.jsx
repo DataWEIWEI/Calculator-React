@@ -23,8 +23,8 @@ class Register extends Component {
             this.setState({error_message: 'two password are not same'})
         } else {
             $.ajax({
-                url: '/api2/register/',
-                // url: 'https://app5593.acapp.acwing.com.cn/calculator/register/',
+                // url: '/api2/register/',
+                url: 'https://app5593.acapp.acwing.com.cn/calculator/register/',
                 type: 'get',
                 data: {
                     username: this.state.username,

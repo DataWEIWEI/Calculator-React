@@ -18,7 +18,8 @@ class Login extends Component {
             this.setState({error_message: 'password is not empty'})
         } else {
             $.ajax({
-                url: '/api2/token/',
+                // url: '/api2/token/',
+                url: 'https://app5593.acapp.acwing.com.cn/calculator/token/',
                 type: 'post',
                 data: {
                     username: this.state.username,

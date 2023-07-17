@@ -9,7 +9,8 @@ class NavBar extends Component {
 
     handlerClick = () => {
         $.ajax({
-            url: '/api2/logout/',
+            // url: '/api2/logout/',
+            url: 'https://app5593.acapp.acwing.com.cn/calculator/logout/',
             type: 'get',
             data: {
                 username: this.state.username,
